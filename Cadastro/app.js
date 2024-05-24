@@ -59,9 +59,12 @@ app.post("/cadastrar", (req, res)=>{
     //req.body -> pega os dados
     const newUsername = req.body.novoUsuario;
     const newPassword =  req.body.novaSenha;
+    const confirmNewPassword = req.body.confirmarNovaSenha
 
     console.log(newUsername);
     console.log(newPassword);
+    console.log(confirmNewPassword)
+
     db.query ('INSERT INTO usuario (usuario, senha) VALUES (?, ?)', [newUsername, newPassword], (error, results) =>{    
         if(error){
             console.log (error)
